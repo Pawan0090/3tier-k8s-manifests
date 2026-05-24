@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: backend-rollout
+  namespace: {{ .Values.global.namespace }}
+spec:
+  replicas: {{ .Values.backend.replicaCount }}
+  strategy:
+    canary: # We are using a Canary deployment strategy
+      steps:
+      - setWeight: {{ .Values.backend.canaryWeight }} # Route 20% traffic to the new version
+      - pause: { duration: 2m } # Hold traffic here for 2 minutes to let you test
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: "{{ .Values.backend.image }}:{{ .Values.backend.tag }}"
+        ports:3000

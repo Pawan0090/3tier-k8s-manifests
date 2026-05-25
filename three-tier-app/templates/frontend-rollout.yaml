@@ -23,3 +23,6 @@ spec:
         image: "{{ .Values.frontend.image }}:{{ .Values.frontend.tag }}"
         ports:
         - containerPort: {{ .Values.frontend.port }}
+        env:
+        - name: REACT_APP_API_URL
+          value: "http://backend-service.apps.svc.cluster.local:5000"

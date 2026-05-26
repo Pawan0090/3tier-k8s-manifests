@@ -13,3 +13,6 @@ frontend:
   image: "dockerpawan09/employee-frontend"
   tag: "latest" # Jenkins will overwrite this dynamically
   port: 3000  
+
+httpRoute:
+  enabled: true

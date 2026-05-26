@@ -4,14 +4,14 @@ global:
 backend:
   replicaCount: 1
   image: "dockerpawan09/employee-backend"
-  tag: "v5"
+  tag: "v6"
   port: 5000
   canaryWeight: 20 # percentage of traffic to route to new version initially
 
 frontend:
   replicaCount: 1
   image: "dockerpawan09/employee-frontend"
-  tag: "v5"
+  tag: "v6"
   port: 80  
 
 httpRoute:

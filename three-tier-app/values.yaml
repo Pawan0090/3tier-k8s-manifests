@@ -4,14 +4,14 @@ global:
 backend:
   replicaCount: 1
   image: "dockerpawan09/employee-backend"
-  tag: "latest" # Jenkins will overwrite this dynamically
+  tag: "v1" # Jenkins will overwrite this dynamically
   port: 5000
   canaryWeight: 20 # percentage of traffic to route to new version initially
 
 frontend:
   replicaCount: 1
   image: "dockerpawan09/employee-frontend"
-  tag: "latest" # Jenkins will overwrite this dynamically
+  tag: "v1" # Jenkins will overwrite this dynamically
   port: 3000  
 
 httpRoute:

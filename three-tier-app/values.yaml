@@ -16,3 +16,5 @@ frontend:
 
 httpRoute:
   enabled: true
+service:
+  port: 3000
